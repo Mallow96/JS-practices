@@ -5,25 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Gemini - </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 
     <style>
+
         #list>li:hover {
             background-color: lightgray;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <h1>JavaScript 陣列練習</h1>
+    <div class="container w-100">
+        <h1 class="mb-3 text-center">簡易代辦清單APP</h1>
 
-    <input type="text" id="input">
-    <button id="btn">新增</button>
-    <span id="warning"></span>
+        <div class="input-group mb-3 w-25">
+            <input type="text" id="input" class="form-control" placeholder="請輸入待辦事項">
+            <button id="btn" class="btn  btn-outline-success">新增</button>
+        </div>
 
-    <h2>To Do List:</h2>
-    <ul id="list">
+        <span id="warning"></span>
 
-    </ul>
+        <h3>代辦事項：</h3>
+        <p class="text-secondary">(點擊清單項目可刪除)</p>
+        <ul id="list" class="list-group">
+
+        </ul>
+</div>
+   
 
     <!-- <script>
         let toDoList = [];
@@ -39,6 +50,8 @@
         console.log(toDoList);
     </script> -->
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
     <script>
         const taskInp = document.querySelector("#input");
         const taskBtn = document.querySelector("#btn");
@@ -53,7 +66,7 @@
                 const newLi = document.createElement("li");
 
                 newLi.textContent = item;
-
+                newLi.classList.add("list-group-item");
                 displayList.appendChild(newLi);
 
                 newLi.addEventListener("click", () => {
@@ -75,7 +88,7 @@
             }
             else {
                 displayWarning.style.color = "red";
-                displayWarning.textContent = "※請輸入待辦事項";
+                displayWarning.textContent = "※請輸入待辦事項，再按「新增」。";
             }
         })
 
