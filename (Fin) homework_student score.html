@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Score Compare</title>
+</head>
+
+<body>
+    <script>
+        const class310 = [
+            { "name": "Jack", "score": 80 },
+            { "name": "Mary", "score": 75 },
+            { "name": "Jenson", "score": 88 },
+            { "name": "Hans", "score": 95 },
+            { "name": "Tom", "score": 93 },
+            { "name": "Fiona", "score": 86 },
+            { "name": "Hank", "score": 95 },
+            { "name": "Ron", "score": 75 },
+            { "name": "Harry", "score": 95 },
+        ];
+
+        let highScore = -1;
+        let studentsWithHighestScores = [];
+
+
+        for (let student of class310) {
+            if (student.score > highScore) {
+                highScore = student.score;
+                studentsWithHighestScores = [student];
+            }
+            else if (student.score === highScore) {
+                studentsWithHighestScores.push(student);
+            }
+        }
+
+        console.log(studentsWithHighestScores);
+
+        // 可再加入提防空陣列或錯植分數等
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare 3 Numbers</title>
+</head>
+
+<body>
+    <h1>Compare 3 Numbers - display by order</h1>
+    <div>
+        輸入數字1：<input type="number" id="number1">
+    </div>
+    <div>
+        輸入數字2：<input type="number" id="number2">
+    </div>
+    <div>
+        輸入數字3：<input type="number" id="number3">
+    </div>
+    <button id="compare-btn">比大小</button>
+
+    <h2 id="display"></h2>
+
+
+    <script>
+        const num1Inp = document.querySelector("#number1");
+        const num2Inp = document.querySelector("#number2");
+        const num3Inp = document.querySelector("#number3");
+
+        let numberInp = [];
+
+        const compareBtn = document.querySelector("#compare-btn");
+        const resultDisplay = document.querySelector("#display");
+
+        compareBtn.addEventListener("click", () => {
+            let num1 = +num1Inp.value;
+            let num2 = +num2Inp.value;
+            let num3 = +num3Inp.value;
+            numberInp.push(num1, num2, num3);
+
+
+            let largeNum = num1;
+
+            for (let item of numberInp) {
+
+                if (item > largeNum) {
+                    largeNum = item;
+                }
+            }
+            console.log(numberInp);
+
+            resultDisplay.textContent = `${largeNum} 最大`
+        })
+
+    </script>
+</body>
+
+</html>

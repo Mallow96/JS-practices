@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: lightseagreen;
+        }
+
+        .row {
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        #again {
+            display: none;
+        }
+
+        input,
+        button {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>猜數字：輸入1 - 100之間的任意數字，並按送出。</h1>
+        <div class="row">
+            <input type="number" name="guess" id="guess-input">
+            <button id="guess-btn">送出</button>
+        </div>
+        <h2>目前共猜了
+            <span id="guess-times"></span>次，共猜對
+            <span id="guess-right"></span>次。
+        </h2>
+        <div class="row">
+            <h2 id="display-text"></h2>
+            <button id="again">再猜一次</button>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        let randomNum = Math.floor(Math.random() * 100 + 1);
+        console.log(randomNum);
+
+        const guessInp = document.querySelector("#guess-input");
+        const guessBtn = document.querySelector("#guess-btn");
+        const resultDisplay = document.querySelector("#display-text");
+        const againBtn = document.querySelector("#again");
+        const guessTimes = document.querySelector("#guess-times");
+        const guessRight = document.querySelector("#guess-right");
+
+        let i = 0;
+        let x = 0;
+
+        guessTimes.textContent = `${x}`;
+        guessRight.textContent = `${i}`;
+
+        guessBtn.addEventListener("click", () => {
+            let display;
+            let guessNum = Number(guessInp.value);
+
+            if (guessNum > randomNum) {
+                display = "再小一點";
+                x++;
+                // console.log(guessNum);
+            }
+            else if (guessNum < randomNum) {
+                display = "再大一點";
+                x++;
+                // console.log(guessNum);
+            }
+            else {
+                display = `猜對了`;
+                resultDisplay.style.color = "green";
+                againBtn.style.display = "inline-block";
+                x++;
+                i++;
+            }
+            resultDisplay.textContent = `${display}`;
+            guessTimes.textContent = `${x}`;
+            guessRight.textContent = `${i}`;
+        }
+        )
+
+        againBtn.addEventListener("click", () => {
+            randomNum = Math.floor(Math.random() * 100 + 1);
+            console.log(randomNum);
+            againBtn.style.display = "none";
+            display = "";
+            resultDisplay.textContent = display;
+            guessInp.value = "";
+            resultDisplay.style.color = "black";
+        })
+
+
+    </script>
+</body>
+
+</html>

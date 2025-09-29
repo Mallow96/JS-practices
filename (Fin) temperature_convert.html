@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        input {
+            font-size: 1.25rem;
+            padding: 0.5rem 1rem;
+
+        }
+
+        .btn {
+            background-color: burlywood;
+            border: none;
+            border-radius: 0.2rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" name="" id="degree">
+    <input type="button" name="" id="btn-C" value="C" class="btn">
+    <input type="button" name="" id="btn-F" value="F" class="btn">
+
+    <h2 id="results"></h2>
+
+
+    <script src="./function.js"></script>
+    <script>
+        console.log(ft_temperature_convert(0, "C"));
+
+        const btnCel = document.querySelector("#btn-C");
+        const btnFah = document.querySelector("#btn-F");
+        const displayResult = document.querySelector("#results");
+
+        btnCel.addEventListener("click", () => {
+            let degreeInp = document.querySelector("#degree");
+            let btnInp = "C";
+            let resultConvert = (ft_temperature_convert(degreeInp.value, btnInp));
+            displayResult.textContent = `${degreeInp.value}℃ 等於 ${resultConvert}℉`
+        })
+        btnFah.addEventListener("click", () => {
+            let degreeInp = document.querySelector("#degree");
+            let btnInp = "F";
+            let resultConvert = (ft_temperature_convert(degreeInp.value, btnInp));
+            displayResult.textContent = `${degreeInp.value} ℉等於 ${resultConvert}℃`
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Homework</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            /* background-color: aqua; */
+            /* margin: auto auto; */
+            text-align: center;
+            width: 500px;
+        }
+
+        input,
+        .row,
+        button {
+            font-size: 1.5rem;
+        }
+
+
+        .row {
+            margin: 1rem;
+        }
+
+        .row1>input,
+        .row2>input {
+            border-radius: 0.3rem;
+            padding: 0.5rem;
+        }
+
+        #calculate {
+            background-color: greenyellow;
+            padding: 0.5rem 1.2rem;
+            border-radius: 0.5rem;
+            border: none;
+        }
+
+
+        #calculate:hover {
+            background-color: green;
+            color: white;
+        }
+
+        label {
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>計算BMI及體位判斷</h1>
+
+        <div class="row row1">
+            <input type="number" id="height-input" name="height">
+            <label for="height">
+                公分
+            </label>
+        </div>
+
+        <div class="row row2">
+            <input type="number" id="weight-input" name="weight">
+            <label for="weight">
+                公斤
+            </label>
+        </div>
+
+        <div class="row row3">
+            <button type="button" id="calculate">計算</button>
+        </div>
+
+        <div class="row results">
+            <span id="results-BMI"></span>
+            <span id="results-eva"></span>
+        </div>
+    </div>
+
+
+
+    <script src="./function.js"></script>
+    <script>
+        let heightInp = document.querySelector("#height-input");
+        let weightInp = document.querySelector("#weight-input");
+        let calBtn = document.querySelector("#calculate");
+        let bmiResult = document.querySelector("#results-BMI");
+        let evaResult = document.querySelector("#results-eva");
+
+        calBtn.addEventListener("click", () => {
+            let calcResult = calcBMI(heightInp.value, weightInp.value);
+
+            bmiResult.textContent = `BMI為 ${calcResult.bmi}，評估為`;
+            evaResult.textContent = `${calcResult.result}。`;
+        })
+    </script>
+</body>
+
+</html>

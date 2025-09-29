@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare 3 Numbers - display largest</title>
+</head>
+
+<body>
+    <h1>Compare 3 Numbers - display largest</h1>
+    <div>
+        輸入數字1：<input type="number" id="number1">
+    </div>
+    <div>
+        輸入數字2：<input type="number" id="number2">
+    </div>
+    <div>
+        輸入數字3：<input type="number" id="number3">
+    </div>
+    <button id="compare-btn">比大小</button>
+
+    <h2 id="display"></h2>
+
+
+    <script>
+        const num1Inp = document.querySelector("#number1");
+        const num2Inp = document.querySelector("#number2");
+        const num3Inp = document.querySelector("#number3");
+        const compareBtn = document.querySelector("#compare-btn");
+        const resultDisplay = document.querySelector("#display");
+
+        compareBtn.addEventListener("click", () => {
+            let num1 = +num1Inp.value;
+            let num2 = +num2Inp.value;
+            let num3 = +num3Inp.value;
+            let result;
+
+            if (num1 > num2 && num1 > num3) {
+                result = `數字1：${num1} 最大`;
+            }
+            else if (num2 > num1 && num2 > num3) {
+                result = `數字2：${num2} 最大`;
+            }
+            else {
+                result = `數字3：${num3} 最大`
+            }
+            // console.log(num1);
+            // console.log(num2);
+            // console.log(num3);
+
+            // console.log(result);
+            resultDisplay.textContent = result;
+        })
+    </script>
+
+
+</body>
+
+</html>
