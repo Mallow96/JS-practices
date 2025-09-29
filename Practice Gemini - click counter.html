@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+</head>
+
+<body>
+    <h1>點擊按鈕</h1>
+
+    <button id="btn">點我</button>
+
+    <div>
+        點擊次數：
+        <span id="display"></span>
+        次
+    </div>
+
+    <script>
+        const clickBtn = document.querySelector("#btn");
+        const resultDisplay = document.querySelector("#display");
+        let clickCounter = 0;
+
+        function color_change() {
+            // 產生一個介於 0 到 16777215 (0xFFFFFF) 之間的隨機整數
+            // toString(16) => 轉為16進位
+            // padStart (6,0) => 確保6位數, 未達6位數用0填補
+            let randomColor = Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0);
+            return randomColor;
+        }
+
+
+        clickBtn.addEventListener("click", () => {
+            clickCounter++;
+            resultDisplay.textContent = clickCounter;
+
+            // if (clickCounter % 2 === 1) {
+            //     clickBtn.style.backgroundColor = "pink";
+            // } else {
+            //     clickBtn.style.backgroundColor = "lightblue";
+            // }
+            ;
+            clickBtn.style.backgroundColor = `#${color_change()}`
+            clickBtn.style.color = `#${color_change()}`
+        })
+
+        resultDisplay.textContent = clickCounter;
+
+    </script>
+</body>
+
+</html>

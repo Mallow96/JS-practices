@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Gemini - </title>
+
+    <style>
+        #list>li:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript 陣列練習</h1>
+
+    <input type="text" id="input">
+    <button id="btn">新增</button>
+    <span id="warning"></span>
+
+    <h2>To Do List:</h2>
+    <ul id="list">
+
+    </ul>
+
+    <!-- <script>
+        let toDoList = [];
+
+        toDoList.push("eat");
+        toDoList.push("drink");
+        toDoList.push("sleep");
+
+        for (item of toDoList) {
+            console.log(item);
+        }
+
+        console.log(toDoList);
+    </script> -->
+
+    <script>
+        const taskInp = document.querySelector("#input");
+        const taskBtn = document.querySelector("#btn");
+        const displayList = document.querySelector("#list");
+        const displayWarning = document.querySelector("#warning");
+        let listItems = [];
+
+        function ft_renderList() {
+            displayList.textContent = "";
+
+            for (let item of listItems) {
+                const newLi = document.createElement("li");
+
+                newLi.textContent = item;
+
+                displayList.appendChild(newLi);
+
+                newLi.addEventListener("click", () => {
+                    let itemToRemove = newLi.textContent;
+                    let indexToRemove = listItems.indexOf(itemToRemove);
+                    listItems.splice(indexToRemove, 1);
+                    ft_renderList();
+                })
+            }
+
+        }
+
+        taskBtn.addEventListener("click", () => {
+            if (taskInp.value !== "") {
+                displayWarning.textContent = "";
+                listItems.push(taskInp.value);
+                taskInp.value = "";
+                ft_renderList();
+            }
+            else {
+                displayWarning.style.color = "red";
+                displayWarning.textContent = "※請輸入待辦事項";
+            }
+        })
+
+        ft_renderList()
+    </script>
+</body>
+
+</html>
