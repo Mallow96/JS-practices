@@ -8,6 +8,21 @@
 </head>
 
 <body>
+    <div class="container">
+            <h1>學生 9 人，比較分數高低</h1>
+            <ol>
+                <li>Jack: 80</li>
+                <li>Mary: 75</li> 
+                <li>Jenson: 88</li>
+                <li>Hans: 95</li>
+                <li>Tom: 93</li>
+                <li>Fiona: 86</li>
+                <li>Hank: 95</li>
+                <li>Ron: 75</li>
+                <li>Harry: 95</li>
+            </ol>               
+            <p>請在 console 中查看結果</p>
+    </div>
     <script>
         const class310 = [
             { "name": "Jack", "score": 80 },
@@ -35,7 +50,13 @@
             }
         }
 
-        console.log(studentsWithHighestScores);
+        
+        console.log(`最高得分為共有${studentsWithHighestScores.length}人，分數為 ${highScore}，分別是：`);
+
+        for (let student of studentsWithHighestScores) {
+            console.log(`${student.name}`);
+        }
+
 
         // 可再加入提防空陣列或錯植分數等
     </script>
