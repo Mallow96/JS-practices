@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
     <style>
+        body{
+            width: 100%;
+        }
+        
+        .container{
+            text-align: center;
+        }
+
         input {
             font-size: 1.25rem;
             padding: 0.5rem 1rem;
-
         }
 
         .btn {
@@ -22,12 +29,18 @@
 </head>
 
 <body>
-    <input type="text" name="" id="degree">
-    <input type="button" name="" id="btn-C" value="C" class="btn">
-    <input type="button" name="" id="btn-F" value="F" class="btn">
+    <div class="container">
+        <h1>溫度轉換器</h1>
+        <p>輸入數字，並選擇溫度單位。</p>
+        
+        <input type="text" name="" id="degree">
+        <input type="button" name="" id="btn-C" value="C" class="btn">
+        <input type="button" name="" id="btn-F" value="F" class="btn">
 
-    <h2 id="results"></h2>
+        <h2 id="results"></h2>
 
+    </div>
+    
 
     <script src="./function.js"></script>
     <script>
